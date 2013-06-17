@@ -1,4 +1,6 @@
 import re
+import os
+import sys
 import json
 import time
 import urllib.request
@@ -28,5 +30,10 @@ def getPlaylist(url):
   list = analyzePlaylist('http://v.iask.com/v_play.php?vid={}&dtime={}'.format(vid, round(time.time() * 1000)))
   return list
 
+def play(list):
+  for url in list:
+    os.system('mplayer "{}"'.format(url))
+
 if __name__ == '__main__':
-  print getPlaylist('')
+  list = getPlaylist(sys.argv[1])
+  play(list)
