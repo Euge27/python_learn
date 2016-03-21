@@ -47,10 +47,10 @@ def print_users(users):
   usernamewith = 9
 
   print("0:<{nw} {1:^6} {2:{uw}}".format(
-    "Name", "ID", "Username", nw=namewith, uw=usernamewith
+    "Name", "ID", "Username", nw=namewidth, uw=usernamewidth
     ))
   print("0:-<{nw} {0:-<6} {0:-<{uw}}".format(
-    "", nw=namewith, uw=usernamewith
+    "", nw=namewidth, uw=usernamewidth
     ))
 
   for key in sorted(users):
@@ -60,7 +60,7 @@ def print_users(users):
       initial = " " + user.middlename[0]
     name = "{0.surname}, {0.forename}{1}".format(user, initial)
     print("{0:.<{nw}} ({1.id:4}) {1.username:{uw}}".format(
-      name, user, nw=namewith, uw=usernamewith
+      name, user, nw=namewidth, uw=usernamewidth
       ))
 
 main()
